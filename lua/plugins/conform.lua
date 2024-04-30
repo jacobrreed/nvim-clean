@@ -58,6 +58,7 @@ return {
         return {
           lsp_fallback = true,
           async = true,
+          timeout = 500,
         }
       end,
     })
