@@ -1,6 +1,19 @@
 return {
   "sindrets/diffview.nvim",
   cond = not vim.g.vscode,
+  setup = function()
+    require("diffview").setup({
+      enhanced_diff_hl = true,
+      use_icons = true,
+      view = {
+        merge_tool = {
+          layout = "diff3_horizontal",
+          winbar_info = true,
+          disable_diagnostics = true,
+        },
+      },
+    })
+  end,
   keys = {
     {
       "<leader>gd",

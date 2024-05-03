@@ -109,12 +109,5 @@ end)
 
 map({ "n" }, "<Backspace>", "^", { desc = "Move to first non-blank character" })
 
-local gwidth = vim.api.nvim_list_uis()[1].width
-local gheight = vim.api.nvim_list_uis()[1].height
-local width = math.floor(gwidth * 0.8)
-local height = math.floor(gheight * 0.8)
-local buf
-local win
-
 -- Remap paste without losing text
 vim.keymap.set("v", "p", '"_dP')
