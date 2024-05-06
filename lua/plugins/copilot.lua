@@ -41,6 +41,9 @@ return {
       { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
       { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
     },
+    config = function()
+      require("CopilotChat").setup({})
+    end,
     keys = {
       { "<leader>Ct", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
       {
@@ -54,7 +57,7 @@ return {
       { "<leader>Ce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
       { "<leader>Cr", "<cmd>CopilotChatReview<cr>", desc = "CopilotChat - Review code" },
       { "<leader>Cf", "<cmd>CopilotChatFixDiagnostic<cr>", desc = "CopilotChat - Fix diagnostic" },
-      { "<leader>CF", "<cmd>CopilotChatFix<cr>", desc = "CopilotChat - Fix code" },
+      { "<leader>CF", "<cmd>CopilotChatFix<cr>", desc = "CopilotChat - Fix code", mode = "v" },
       { "<leader>Ce", "<cmd>CopilotChatExplain<cr>", desc = "CopilotChat - Explain code" },
       { "<leader>CT", "<cmd>CopilotChatTests<cr>", desc = "CopilotChat - Generate tests" },
       { "<leader>Ct", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
