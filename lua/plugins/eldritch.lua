@@ -4,6 +4,11 @@ return {
   priority = 1000,
   opts = {
     transparent = true,
+    -- on_highlights = function(highlights, colors)
+    --   highlights.String = {
+    --     fg = colors.fg,
+    --   }
+    -- end,
   },
   config = function(_, opts)
     local eldritch = require("eldritch")
