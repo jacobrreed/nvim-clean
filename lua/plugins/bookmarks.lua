@@ -1,5 +1,5 @@
 return {
-  "jacobrreed/bookmarks.nvim",
+  "tomasky/bookmarks.nvim",
   cond = not vim.g.vscode,
   event = "VimEnter",
   config = function()

@@ -50,6 +50,9 @@ return {
         python = { "isort", "black" },
         rust = { "rustfmt" },
       },
+      formatters = {
+        injected = { options = { ignore_errors = true } },
+      },
       format_on_save = function(bufnr)
         -- Disable with a global or buffer-local variable
         if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
@@ -57,8 +60,9 @@ return {
         end
         return {
           lsp_fallback = true,
-          async = true,
-          timeout = 500,
+          async = false,
+          quiet = false,
+          timeout = 3000,
         }
       end,
     })
