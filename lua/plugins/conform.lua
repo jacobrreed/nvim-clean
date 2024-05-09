@@ -35,36 +35,32 @@ return {
     conform.setup({
       quiet = true,
       formatters_by_ft = {
-        javascript = { "prettier", "eslint_d" },
-        typescript = { "prettier", "eslint_d" },
-        javascriptreact = { "prettier", "eslint_d" },
-        typescriptreact = { "prettier", "eslint_d" },
-        svelte = { "prettier" },
-        css = { "prettier" },
-        html = { "prettier" },
-        json = { "prettier" },
-        yaml = { "prettier" },
-        markdown = { "prettier" },
-        graphql = { "prettier" },
+        javascript = { "prettierd", "eslint_d" },
+        typescript = { "prettierd", "eslint_d" },
+        javascriptreact = { "prettierd", "eslint_d" },
+        typescriptreact = { "prettierd", "eslint_d" },
+        svelte = { "prettierd" },
+        css = { "prettierd" },
+        html = { "prettierd" },
+        json = { "prettierd" },
+        yaml = { "prettierd" },
+        markdown = { "prettierd" },
+        graphql = { "prettierd" },
         lua = { "stylua" },
         python = { "isort", "black" },
         rust = { "rustfmt" },
       },
       formatters = {
-        injected = { options = { ignore_errors = true } },
+        injected = { options = { ignore_errors = false } },
       },
-      format_on_save = function(bufnr)
-        -- Disable with a global or buffer-local variable
-        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-          return
-        end
-        return {
-          lsp_fallback = true,
-          async = false,
-          quiet = false,
-          timeout = 3000,
-        }
-      end,
+      -- format_on_save = function(bufnr)
+      --   return {
+      --     lsp_fallback = true,
+      --     async = true,
+      --     quiet = false,
+      --     timeout = 1000,
+      --   }
+      -- end,
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>cfv", function()

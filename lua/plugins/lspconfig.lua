@@ -36,6 +36,12 @@ return {
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
+      -- -- Typescript/Javascript
+      -- lspconfig["tsserver"].setup({
+      --   capabilities = capabilities,
+      --   on_attach = on_attach,
+      -- })
+
       -- JSON
       lspconfig["jsonls"].setup({
         capabilities = capabilities,
@@ -210,7 +216,15 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {
       settings = {
-        expose_as_code_action = { "fix_all", "add_missing_imports", "remove_unused", "remove_unused_imports" },
+        separate_diagnostic_server = true,
+        publish_diagnostic_on = "insert_leave",
+        tsserver_max_memory = "auto",
+        expose_as_code_action = { "all" },
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+          quotePreference = "double",
+          includeCompletionsForModuleExports = true,
+        },
       },
     },
   },
