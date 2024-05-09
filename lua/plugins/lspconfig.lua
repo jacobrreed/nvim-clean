@@ -37,10 +37,10 @@ return {
       end
 
       -- -- Typescript/Javascript
-      -- lspconfig["tsserver"].setup({
-      --   capabilities = capabilities,
-      --   on_attach = on_attach,
-      -- })
+      lspconfig["tsserver"].setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
 
       -- JSON
       lspconfig["jsonls"].setup({
@@ -210,22 +210,20 @@ return {
       { "gT", "<cmd>Lspsaga goto_type_definition<cr>", desc = "Go to type definition" },
     },
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    cond = not vim.g.vscode,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      settings = {
-        separate_diagnostic_server = true,
-        publish_diagnostic_on = "insert_leave",
-        tsserver_max_memory = "auto",
-        expose_as_code_action = { "all" },
-        tsserver_file_preferences = {
-          includeInlayParameterNameHints = "all",
-          quotePreference = "double",
-          includeCompletionsForModuleExports = true,
-        },
-      },
-    },
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   cond = not vim.g.vscode,
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {
+  --     settings = {
+  --       separate_diagnostic_server = true,
+  --       publish_diagnostic_on = "insert_leave",
+  --       tsserver_max_memory = "auto",
+  --       expose_as_code_action = { "all" },
+  --       tsserver_file_preferences = {
+  --         includeInlayParameterNameHints = "all"
+  --       },
+  --     },
+  --   },
+  -- },
 }

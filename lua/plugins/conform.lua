@@ -53,14 +53,14 @@ return {
       formatters = {
         injected = { options = { ignore_errors = false } },
       },
-      -- format_on_save = function(bufnr)
-      --   return {
-      --     lsp_fallback = true,
-      --     async = true,
-      --     quiet = false,
-      --     timeout = 1000,
-      --   }
-      -- end,
+      format_on_save = function(bufnr)
+        return {
+          lsp_fallback = true,
+          async = true,
+          quiet = false,
+          timeout = 1000,
+        }
+      end,
     })
 
     vim.keymap.set({ "n", "v" }, "<leader>cfv", function()
