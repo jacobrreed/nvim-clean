@@ -1,6 +1,4 @@
 return {
-  { "tpope/vim-fugitive", cond = not vim.g.vscode },
-  { "tpope/vim-rhubarb", cond = not vim.g.vscode },
   {
     "lewis6991/gitsigns.nvim",
     cond = not vim.g.vscode,
@@ -37,14 +35,5 @@ return {
     keys = {
       { "<leader>gg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
     },
-  },
-  -- {
-  --   "NeogitOrg/neogit",
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim", -- required
-  --     "sindrets/diffview.nvim", -- optional - Diff integration
-  --     "nvim-telescope/telescope.nvim", -- optional
-  --   },
-  --   config = true,
-  -- },
+  }
 }
