@@ -171,7 +171,7 @@ return {
     "nvim-treesitter/nvim-treesitter-context",
     opts = {
       separator = "",
-      max_lines = 0,
+      max_lines = 5,
     },
   },
   {

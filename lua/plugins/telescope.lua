@@ -47,6 +47,8 @@ return {
       vim.g.qf_is_open = true
     end
 
+    local open_with_trouble = require("trouble.sources.telescope").open
+
     telescope.setup({
       defaults = {
         history = {
@@ -71,7 +73,7 @@ return {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
             ["<C-q>"] = smart_send_and_open_qflist,
-            ["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+            ["<C-t>"] = open_with_trouble,
             ["<C-u>"] = actions.preview_scrolling_up,
             ["<C-d>"] = actions.preview_scrolling_down,
             ["<RightMouse>"] = actions.close,
