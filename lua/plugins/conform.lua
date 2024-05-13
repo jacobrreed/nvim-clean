@@ -2,7 +2,7 @@ return {
   "stevearc/conform.nvim",
   cond = not vim.g.vscode,
   lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+  event = { "BufWritePre" },
   config = function()
     local conform = require("conform")
 
@@ -32,6 +32,7 @@ return {
       bang = true,
     })
 
+    local slow_format_filetypes = {}
     conform.setup({
       quiet = true,
       formatters_by_ft = {
@@ -53,13 +54,25 @@ return {
       formatters = {
         injected = { options = { ignore_errors = false } },
       },
-      format_on_save = function()
+      format_on_save = function(bufnr)
+        if slow_format_filetypes[vim.bo[bufnr].filetype] then
+          return
+        end
+        local function on_format(err)
+          if err and err:match("timeout$") then
+            slow_format_filetypes[vim.bo[bufnr].filetype] = true
+          end
+        end
         return {
           lsp_fallback = true,
-          async = true,
-          quiet = false,
           timeout = 1000,
         }
+      end,
+      format_after_save = function(bufnr)
+        if not slow_format_filetypes[vim.bo[bufnr].filetype] then
+          return
+        end
+        return { lsp_fallback = true }
       end,
     })
 
