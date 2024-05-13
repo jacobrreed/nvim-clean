@@ -58,7 +58,7 @@ return {
           lsp_fallback = true,
           async = true,
           quiet = false,
-          timeout = 1000,
+          timeout = 500,
         }
       end,
     })
