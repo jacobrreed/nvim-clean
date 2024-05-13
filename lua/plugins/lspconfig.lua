@@ -132,6 +132,7 @@ return {
             "<cmd>Telescope lsp_definitions<CR>",
             { desc = "Show LSP definitions", buffer = ev.buf }
           )
+          vim.keymap.set("n", "<leader>Ll", "<cmd>LspLog<CR>", { desc = "LSP logs" })
           vim.keymap.set(
             "n",
             "<leader>LI",
