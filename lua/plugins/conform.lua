@@ -53,12 +53,12 @@ return {
       formatters = {
         injected = { options = { ignore_errors = false } },
       },
-      format_on_save = function(bufnr)
+      format_on_save = function()
         return {
           lsp_fallback = true,
           async = true,
           quiet = false,
-          timeout = 500,
+          timeout = 1000,
         }
       end,
     })

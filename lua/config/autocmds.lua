@@ -102,7 +102,20 @@ vim.api.nvim_create_autocmd("FileType", {
     end
   end,
 })
-
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   group = vim.api.nvim_create_augroup("TS_add_missing_imports", { clear = true }),
+--   desc = "TS_add_missing_imports",
+--   pattern = { "*.ts" },
+--   callback = function()
+--     vim.lsp.buf.code_action({
+--       apply = true,
+--       context = {
+--         only = { "source.addMissingImports.ts" },
+--       },
+--     })
+--     vim.cmd("write")
+--   end,
+-- })
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("ts_fix_imports", { clear = true }),
   desc = "Add missing imports and remove unused imports for TS",
@@ -125,7 +138,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
     vim.cmd("TSToolsAddMissingImports sync")
     vim.cmd("TSToolsRemoveUnusedImports sync")
-    require("conform").format({ bufnr = bufnr, async = true, quiet = true, lsp_fallback = true, timeout = 3000 })
+    require("conform").format({ bufnr = bufnr, async = true, quiet = true, lsp_fallback = true, timeout = 1000 })
   end,
 })
 
