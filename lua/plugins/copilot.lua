@@ -5,16 +5,14 @@ return {
     cmd = "Copilot",
     build = ":Copilot auth",
     event = {
-      "BufEnter",
-      "BufReadPre",
       "InsertEnter",
     },
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
-        markdown = true,
-        help = true,
+        markdown = false,
+        help = false,
       },
       copilot_node_command = os.getenv("FNM_DIR") and vim.fn.expand("$FNM_DIR") .. "/aliases/default/bin/node"
         or "node",
