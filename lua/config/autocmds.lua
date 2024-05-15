@@ -154,12 +154,3 @@ vim.api.nvim_create_user_command("MasonUpgrade", function()
   end
   vim.cmd("doautocmd User MasonUpgradeComplete")
 end, { force = true })
-
--- Auto wrap for spectre_panel
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("spectre_wrap"),
-  pattern = { "spectre_panel" },
-  callback = function()
-    vim.opt_local.wrap = true
-  end,
-})

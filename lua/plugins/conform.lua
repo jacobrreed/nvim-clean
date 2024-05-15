@@ -32,6 +32,17 @@ return {
       bang = true,
     })
 
+    local function augroup(name)
+      return vim.api.nvim_create_augroup("autocmd_" .. name, { clear = true })
+    end
+    vim.api.nvim_create_autocmd("FileType", {
+      group = augroup("conform_disable"),
+      pattern = { "markdown" },
+      callback = function()
+        vim.b.disable_autoformat = true
+      end,
+    })
+
     local slow_format_filetypes = {}
     conform.setup({
       quiet = true,
