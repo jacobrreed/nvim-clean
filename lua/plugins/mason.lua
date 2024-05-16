@@ -37,9 +37,9 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "prettierd", -- prettier formatter
+        "prettier", -- prettier formatter
         "stylua", -- lua formatter
-        "eslint_d", -- js linter
+        "eslint", -- js linter
         "jsonlint", -- json formatter
       },
     })

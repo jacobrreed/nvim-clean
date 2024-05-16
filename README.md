@@ -197,7 +197,7 @@ NVIM_APPNAME=jacobrreed/nvim/ nvim
 
 - cssls
 - emmet_ls
-- eslint_d
+- eslint
 - gopls
 - html
 - jsonls
