@@ -1,23 +1,21 @@
 return {
   {
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip/loaders/from_vscode").lazy_load()
+    end,
+  },
+  {
     "hrsh7th/nvim-cmp",
     cond = not vim.g.vscode,
     event = "InsertEnter",
     config = function()
       local cmp = require("cmp")
 
-      local has_words_before = function()
-        unpack = unpack or table.unpack
-        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-      end
-
       local opts = {
-        enabled = function()
-          local disabled = false
-          disabled = disabled or (vim.api.nvim_buf_get_option(0, "buftype") == "prompt")
-          return not disabled
-        end,
         experimental = {
           ghost_text = true,
         },
@@ -77,15 +75,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "lukas-reineke/cmp-rg",
-      {
-        "L3MON4D3/LuaSnip",
-        version = "v2.*",
-        build = "make install_jsregexp",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        config = function()
-          require("luasnip/loaders/from_vscode").lazy_load()
-        end,
-      },
+      "L3MON4D3/LuaSnip",
     },
   },
 }
