@@ -38,12 +38,13 @@ return {
           ["<S-CR>"] = cmp.mapping.abort(),
         }),
         sources = cmp.config.sources({
-          { name = "nvim_lsp", priority = 100 },
-          { name = "crates", priority = 95 },
-          { name = "copilot", priority = 90 },
-          { name = "rg", keyword_length = 3, priority = 70 },
-          { name = "buffer", priority = 60 },
-          { name = "path", priority = 50 },
+          { name = "nvim_lsp" },
+          { name = "crates" },
+          { name = "copilot" },
+          { name = "luasnip" },
+          { name = "rg", keyword_length = 3 },
+          { name = "buffer" },
+          { name = "path" },
         }),
         formatting = {
           format = require("lspkind").cmp_format({
@@ -55,9 +56,20 @@ return {
             },
           }),
         },
+        snippet = {
+          expand = function(args)
+            require("luasnip").lsp_expand(args.body)
+          end,
+        },
       }
 
       require("cmp").setup(opts)
+      cmp.setup.cmdline({ "/", "?" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = "buffer" },
+        },
+      })
     end,
     dependencies = {
       "onsails/lspkind.nvim",
@@ -66,6 +78,11 @@ return {
       "hrsh7th/cmp-path",
       "rafamadriz/friendly-snippets",
       "lukas-reineke/cmp-rg",
+      {
+        "L3MON4D3/LuaSnip",
+        version = "v2.*",
+        build = "make install_jsregexp",
+      },
     },
   },
 }
