@@ -2,7 +2,6 @@ return {
   "folke/trouble.nvim",
   cond = not vim.g.vscode,
   opts = { use_diagnostic_signs = true },
-  branch = "dev",
   keys = {
     { "<leader>xx", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Document Diagnostics (Trouble)" },
     { "<leader>xX", "<cmd>Trouble diagnostics toggle<cr>", desc = "Workspace Diagnostics (Trouble)" },
