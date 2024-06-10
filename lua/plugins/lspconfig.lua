@@ -41,6 +41,7 @@ return {
       --   capabilities = capabilities,
       --   on_attach = on_attach,
       -- })
+      lspconfig["vtsls"] = require("vtsls").lspconfig
 
       -- JSON
       lspconfig["jsonls"].setup({
@@ -212,13 +213,16 @@ return {
     },
   },
   {
-    "pmizio/typescript-tools.nvim",
-    cond = not vim.g.vscode,
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      settings = {
-        expose_as_code_action = { "all" },
-      },
-    },
+    "yioneko/nvim-vtsls",
   },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   cond = not vim.g.vscode,
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   opts = {
+  --     settings = {
+  --       expose_as_code_action = { "all" },
+  --     },
+  --   },
+  -- },
 }
