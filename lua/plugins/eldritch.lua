@@ -3,12 +3,7 @@ return {
   "eldritch-theme/eldritch.nvim",
   priority = 1000,
   opts = {
-    transparent = true,
-    -- on_highlights = function(highlights, colors)
-    --   highlights.String = {
-    --     fg = colors.fg,
-    --   }
-    -- end,
+    transparent = false,
   },
   config = function(_, opts)
     local eldritch = require("eldritch")

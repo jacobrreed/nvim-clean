@@ -95,7 +95,6 @@ return {
     },
     opts = {
       auto_install = true,
-      autotag = { enable = true },
       highlight = { enable = true },
       indent = { enable = true },
       ensure_installed = {
@@ -158,7 +157,9 @@ return {
   {
     "windwp/nvim-ts-autotag",
     event = require("util.event").LazyFile,
-    opts = {},
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
