@@ -3,8 +3,8 @@ return {
   version = "*",
   lazy = true,
   event = {
-    "BufReadPre " .. vim.fn.expand("~") .. "/dev/notes/**.md",
-    "BufNewFile " .. vim.fn.expand("~") .. "/dev/notes/**.md",
+    "BufReadPre " .. vim.fn.expand("~") .. "/dev/vault/**.md",
+    "BufNewFile " .. vim.fn.expand("~") .. "/dev/vault/**.md",
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
