@@ -138,6 +138,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end
     vim.cmd("TSToolsAddMissingImports sync")
     vim.cmd("TSToolsRemoveUnusedImports sync")
+
+    if not vim.g.disable_autoformat and not vim.b[bufnr].disable_autoformat then
+      return
+    end
     require("conform").format({ bufnr = bufnr, async = true, quiet = true, lsp_fallback = true, timeout = 1000 })
   end,
 })

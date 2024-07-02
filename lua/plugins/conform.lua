@@ -64,6 +64,23 @@ return {
       },
       formatters = {
         injected = { options = { ignore_errors = false } },
+        prettier = {
+          require_cwd = true,
+          cwd = require("conform.util").root_file({
+            ".prettierrc",
+            ".prettierrc.json",
+            ".prettierrc.yml",
+            ".prettierrc.yaml",
+            ".prettierrc.json5",
+            ".prettierrc.js",
+            ".prettierrc.cjs",
+            ".prettierrc.mjs",
+            ".prettierrc.toml",
+            "prettier.config.js",
+            "prettier.config.cjs",
+            "prettier.config.mjs",
+          }),
+        },
       },
       format_on_save = function(bufnr)
         if slow_format_filetypes[vim.bo[bufnr].filetype] then
@@ -73,6 +90,9 @@ return {
           if err and err:match("timeout$") then
             slow_format_filetypes[vim.bo[bufnr].filetype] = true
           end
+        end
+        if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+          return
         end
         return {
           lsp_fallback = true,
