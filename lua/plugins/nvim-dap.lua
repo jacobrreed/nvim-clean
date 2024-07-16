@@ -88,9 +88,7 @@ return {
         )
       end
       local wk = require("which-key")
-      wk.register({
-        ["d"] = { name = "Debug" },
-      }, { mode = "n", prefix = "<leader>" })
+      wk.add({ { "<leader>d", group = "Debug", mode = "n" } })
     end,
   },
   {

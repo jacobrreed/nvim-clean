@@ -3,7 +3,7 @@ return {
   "eldritch-theme/eldritch.nvim",
   priority = 1000,
   opts = {
-    transparent = false,
+    transparent = true,
   },
   config = function(_, opts)
     local eldritch = require("eldritch")

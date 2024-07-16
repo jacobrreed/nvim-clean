@@ -1,5 +1,6 @@
 return {
   "akinsho/bufferline.nvim",
+  version = "*",
   cond = not vim.g.vscode,
   lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons", "famiu/bufdelete.nvim" },
@@ -10,7 +11,7 @@ return {
       show_tab_indicators = false,
       max_name_length = 26,
       diagnostics = "nvim_lsp",
-      diagnostics_update_in_insert = true,
+      diagnostics_update_on_event = true, -- use nvim's diagnostic handler
       offsets = {
         {
           filetype = "neo-tree",
@@ -23,7 +24,7 @@ return {
   },
   keys = function()
     local wk = require("which-key")
-    wk.register({ ["<leader>b"] = { name = "Buffer" } })
+    wk.add({ { "<leader>b", group = "Buffer" } })
     return {
       { "<leader>bp", "<Cmd>BufferLineTogglePin<CR>", desc = "Toggle pin" },
       { "<leader>bP", "<Cmd>BufferLineGroupClose ungrouped<CR>", desc = "Delete non-pinned buffers" },
