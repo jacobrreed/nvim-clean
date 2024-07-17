@@ -32,6 +32,7 @@ return {
         "jsonls",
         "gopls",
         "taplo",
+        "yamlls",
       },
     })
 

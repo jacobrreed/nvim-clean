@@ -1,9 +1,12 @@
 return {
   "folke/which-key.nvim",
   dependencies = {
+    -- {
+    --   "echasnovski/mini.icons",
+    --   version = false,
+    -- },
     {
-      "echasnovski/mini.icons",
-      version = false,
+      "nvim-tree/nvim-web-devicons",
     },
   },
   cond = not vim.g.vscode,
@@ -14,29 +17,26 @@ return {
     return {
       preset = "helix",
       plugins = { spelling = true },
-      icons = {
-        rules = false,
-      },
     }
   end,
   config = function(_, opts)
     local wk = require("which-key")
+    local get_icon = require("nvim-web-devicons").get_icon
     wk.setup(opts)
     wk.add({
       {
         mode = { "n", "v" },
         { "<leader><tab>", group = "tabs" },
-        { "<leader>C", group = "Copilot" },
+        { "<leader>C", group = "Copilot", icon = " " },
         { "<leader>Ca", "<cmd>Copilot panel accept<cr>", desc = "Accept current highlighted panel suggestion" },
         { "<leader>Cp", "<cmd>Copilot panel open<cr>", desc = "Open panel" },
         { "<leader>Cs", "<cmd>Copilot status<cr>", desc = "Status" },
-        { "<leader>L", group = "LSP" },
         { "<leader>Ll", group = "Lspsaga" },
         { "<leader>Q", group = "Quit/Session/Save" },
         { "<leader>Ql", "<cmd>SessionsLoad<cr>", desc = "Load Session" },
         { "<leader>Qq", "<cmd>xa!<cr>", desc = "Save all and quit" },
         { "<leader>Qs", "<cmd>SessionsSave<cr>", desc = "Save Session" },
-        { "<leader>W", group = "Workspaces" },
+        { "<leader>W", group = "Workspaces", icon = " " },
         { "<leader>Wa", "<cmd>WorkspacesAdd<cr>", desc = "Add Workspace" },
         { "<leader>Wd", "<cmd>WorkspacesRemove<cr>", desc = "Delete Workspace" },
         { "<leader>Wl", "<cmd>Telescope workspaces<cr>", desc = "List Workspaces" },

@@ -113,7 +113,7 @@ return {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           local wk = require("which-key")
-          wk.add({ "<leader>L", group = "LSP" })
+          wk.add({ "<leader>L", group = "LSP", icon = " " })
 
           vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
