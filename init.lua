@@ -1,0 +1,12 @@
+-- if vim.fn.has("macunix") then
+--   local old_stdpath = vim.fn.stdpath
+--   vim.fn.stdpath = function(value)
+--     if value == "data" then
+--       return vim.env.HOME .. "/dev/.local/share/nvim"
+--     elseif value == "state" then
+--       return vim.env.HOME .. "/dev/.local/state/nvim"
+--     end
+--     return old_stdpath(value)
+--   end
+-- end
+require("config.lazy")
