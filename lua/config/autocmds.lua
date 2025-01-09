@@ -97,6 +97,15 @@ vim.api.nvim_create_user_command("MasonUpgrade", function()
   vim.cmd("doautocmd User MasonUpgradeComplete")
 end, { force = true })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup("organise_imports"),
+  pattern = { "*.ts", ".tsx" },
+  callback = function()
+    vim.lsp.buf.code_action({ apply = true, context = { only = { "source.addMissingImports.ts" }, diagnostics = {} } })
+    vim.lsp.buf.code_action({ apply = true, context = { only = { "source.removeUnused.ts" }, diagnostics = {} } })
+  end,
+})
+
 local numtogGrp = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   pattern = "*",
