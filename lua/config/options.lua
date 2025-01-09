@@ -76,3 +76,4 @@ vim.g.markdown_recommended_style = 0
 vim.g.qf_is_open = false
 
 vim.g.lazyvim_prettier_needs_config = true
+vim.g.lazyvim_eslint_auto_format = true
