@@ -3,10 +3,15 @@ return {
   vscode = false,
   opts = {
     timeoutlen = 50,
-    preset = "modern",
     spec = {
       {
         mode = { "n", "v" },
+        {
+          "<leader>S",
+          group = "snippet",
+          mode = "v",
+          icon = { icon = "✀ " },
+        },
       },
     },
   },
