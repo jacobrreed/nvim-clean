@@ -1,15 +1,9 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    -- sources = {
-    --   providers = {
-    --     snippets = {
-    --       opts = {
-    --         search_paths = { vim.fn.stdpath("config") .. "/snippets" },
-    --       },
-    --     },
-    --   },
-    -- },
+    enabled = function()
+      return not vim.tbl_contains({ "copilot-chat", "markdown" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
+    end,
     completion = {
       list = {
         -- selection = "manual",
