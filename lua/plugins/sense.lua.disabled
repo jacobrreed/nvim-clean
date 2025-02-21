@@ -1,0 +1,4 @@
+return {
+  -- Doesnt work with treesitter-context
+  "boltlessengineer/sense.nvim",
+}
