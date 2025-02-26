@@ -15,7 +15,7 @@ return {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
       auto_insert_mode = false,
-      model = "claude-3.5-sonnet",
+      model = "claude-3.7-sonnet",
       highlight_headers = false,
     },
   },

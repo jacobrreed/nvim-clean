@@ -5,7 +5,7 @@ return {
       sections = {
         {
           section = "terminal",
-          cmd = "cat ~/.config/nvim/anime-chafa.txt",
+          cmd = "cat ~/.config/nvim/banner.txt",
           height = 15,
           padding = 1,
         },
